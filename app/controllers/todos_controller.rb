@@ -7,8 +7,6 @@ class TodosController < ApplicationController
   def new
     @todos = Todo.all
     @todo = Todo.new
-
-
   end
 
   def create
@@ -16,7 +14,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
-        format.json { render json: @todo, status: :created, location: @todo }
+        format.json { render json: @todo, status: :created}
       else
         format.json { render json: @todo.errors, status: :unprocessable_entity }
       end
